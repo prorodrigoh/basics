@@ -38,22 +38,3 @@ import fetch from 'node-fetch'
 // executar com o primeiro endereco e retornar para o arquivo geral
 // esperar a execucao e rodar outra vez com o outro endereco e retornar para o arquivo geral
 // retornar o arquivo geral
-
-
-function goGetBeverages (apiUrl){
-  fetch(apiUrl)
-        .then(raw => raw.json())
-        .then(data => getAllBeverages(data[0]))
-        .catch(myErr => console.log('Error found:', myErr))
-}
-let allBevs = []
-let getAllBeverages = (data) => {
-  allBevs.push(data)
-  console.log(allBevs.length)
-}
-
-const beerUrl = 'https://api.sampleapis.com/beers/ale'
-const coffeeUrl = 'https://api.sampleapis.com/coffee/hot'
-
-goGetBeverages(beerUrl)
-goGetBeverages(coffeeUrl)
